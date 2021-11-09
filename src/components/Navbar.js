@@ -15,7 +15,7 @@ const Navbar = (props) => {
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="/navbarSupportedContent"
+            data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
@@ -56,12 +56,13 @@ const Navbar = (props) => {
                 type="checkbox"
                 onClick={props.toggleMode}
                 id="flexSwitchCheckChecked"
+                style={{ cursor: "pointer" }}
               />
               <label
                 className="form-check-label"
                 htmlFor="flexSwitchCheckChecked"
               >
-                Enable Dark Mode
+                Enable {props.mode === "light" ? "Dark" : "Light"} Mode
               </label>
             </div>
           </div>

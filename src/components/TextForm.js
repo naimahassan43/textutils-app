@@ -30,7 +30,11 @@ function TextForm(props) {
   };
   const [text, setText] = useState("");
   return (
-    <>
+    <div
+      style={{
+        color: props.mode === "dark" ? "white" : "black",
+      }}
+    >
       <div className="container">
         <h1>{props.heading}</h1>
         <div className="mb-3">
@@ -38,6 +42,10 @@ function TextForm(props) {
             className="form-control"
             value={text}
             onChange={handleOnChange}
+            style={{
+              backgroundColor: props.mode === "dark" ? "#2d5e68" : "white",
+              color: props.mode === "dark" ? "white" : "black",
+            }}
             id="myBox"
             rows={8}
           />
@@ -68,9 +76,13 @@ function TextForm(props) {
         </p>
         <p>Need {0.008 * text.split(" ").length} Minutes to read</p>
         <h4>Preview</h4>
-        <p>{text}</p>
+        <p>
+          {text.length > 0
+            ? text
+            : "Enter something into textbox to preview here..."}
+        </p>
       </div>
-    </>
+    </div>
   );
 }
 
