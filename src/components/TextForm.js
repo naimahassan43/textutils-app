@@ -17,7 +17,7 @@ function TextForm(props) {
     // console.log("uppercase was clicked: "+ text);
     let newText = "";
     setText(newText);
-    props.showAlert("Textarea Cleared !", "warning");
+    props.showAlert("Text Cleared !", "warning");
   };
   const handleOnChange = (event) => {
     setText(event.target.value);
@@ -25,11 +25,14 @@ function TextForm(props) {
   const handleCopy = () => {
     let text = document.getElementById("myBox");
     text.select();
+    text.setSelectionRange(0, 9999);
     navigator.clipboard.writeText(text.value);
+    props.showAlert("Copied to clipboard!", "success");
   };
   const handleExtraSpaces = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "));
+    props.showAlert("Extra Spaces Removed!", "warning");
   };
   const [text, setText] = useState("");
   return (
