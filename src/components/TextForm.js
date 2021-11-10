@@ -24,6 +24,7 @@ function TextForm(props) {
     text.select();
     text.setSelectionRange(0, 9999);
     navigator.clipboard.writeText(text.value);
+    document.getSelection().removeAllRanges();
     props.showAlert("Copied to clipboard!", "success");
   };
   const handleExtraSpaces = () => {
