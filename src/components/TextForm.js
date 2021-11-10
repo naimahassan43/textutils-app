@@ -5,16 +5,19 @@ function TextForm(props) {
     // console.log("uppercase was clicked: "+ text);
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to uppercase!", "primary");
   };
   const handleLowClick = () => {
     // console.log("uppercase was clicked: "+ text);
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to lowercase!", "primary");
   };
   const handleClearClick = () => {
     // console.log("uppercase was clicked: "+ text);
     let newText = "";
     setText(newText);
+    props.showAlert("Textarea Cleared !", "warning");
   };
   const handleOnChange = (event) => {
     setText(event.target.value);
